@@ -1,5 +1,11 @@
 #!/opt/local/bin/python
 
+
+# I forget where I found this, but it's not mine. I found 
+# it on a forum where an extremely bitter man scolded this
+# kid for "trying to make a natural language processor" and
+# for using two different languages in a script. I thought
+# it was a cool idea so here we are.
 import os 
 a=0 
 pi = 3.14 
