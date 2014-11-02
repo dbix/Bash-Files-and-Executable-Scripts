@@ -118,26 +118,47 @@ esac
 UC=$COLOR_BLACK               # user's color
 [ $UID -eq "0" ] && UC=$COLOR_RED   # root's color
 
-#PS1="$TITLEBAR\n${UC}\u ${COLOR_LIGHT_BLUE}\${PWD} ${COLOR_BLACK} \n${COLOR_LIGHT_BLUE}→${COLOR_NC} "
+# Custom bash prompt via kirsle.net/wizards/ps1.html
+export PS1="8=D~ ${COLOR_LIGHT_BLUE}\${PWD}${COLOR_LIGHT_BLUE}→${COLOR_NC} "
 
 ###############################################################################
 # Miscellaneous                                                               #
 ###############################################################################
 # Bash completion
-#if [[ -f /opt/local/etc/profile.d/bash_completion.sh ]];
-#then . /opt/local/etc/profile.d/bash_completion.sh
-#fi
-
-# Backup MacPorts installed ports list
-port -qv installed > ~/.macports_installed
-port upgrade outdated
+if [[ -f /opt/local/etc/profile.d/bash_completion.sh ]];
+    then . /opt/local/etc/profile.d/bash_completion.sh
+fi
 
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
 
+# Self explanatory
+export MSG_GREETING="
+${COLOR_RED}********************************************************************************
+${COLOR_WHITE}********************************************************************************
+${COLOR_BLUE}********************************************************************************
+${COLOR_RED}********************************************************************************
+${COLOR_WHITE}********************************************************************************
+${COLOR_BLUE}************${COLOR_BLACK}  ___________  ${COLOR_BLUE}********${COLOR_BLACK}   __   .__  ${COLOR_BLUE}********************************
+${COLOR_RED}*************${COLOR_BLACK} \_   _____/_ __   ____ |  | _|__| ____ ${COLOR_RED}**${COLOR_BLACK} ____  ${COLOR_RED}******************
+${COLOR_WHITE}*************${COLOR_BLACK}  |  /___ |  |  \_/ ___\|  |/ /  |/    \  / ___\  ${COLOR_WHITE}*****************
+${COLOR_BLUE}*************${COLOR_BLACK}  |  |__/ |  |  /\  \___|    <|  |   |  \/ /_/  >  ${COLOR_BLUE}****************
+${COLOR_RED}**************${COLOR_BLACK} \__ \   |____/  \___  >__|_ \__|___|  /\___  /  ${COLOR_RED}*****************
+${COLOR_WHITE}***************${COLOR_BLACK}   \/               \/     \/       \//_____/  ${COLOR_WHITE}******************
+${COLOR_BLUE}*****************${COLOR_BLACK}       ________                             ${COLOR_BLUE}*******************
+${COLOR_RED}*********************${COLOR_BLACK}  /  _____/_  _  __ __   ____    ${COLOR_RED}**************************
+${COLOR_WHITE}*********************${COLOR_BLACK}  \____   \ \/ \/ / _ \ / ___\  ${COLOR_WHITE}***************************
+${COLOR_BLUE}*********************${COLOR_BLACK} _____/  / \  ^  / /_\ / /_/  >  ${COLOR_BLUE}**************************
+${COLOR_RED}********************${COLOR_BLACK} /_____  /   \/ \/____  \___  /  ${COLOR_RED}***************************
+${COLOR_WHITE}********************${COLOR_BLACK}       \/             \/_____/  ${COLOR_WHITE}****************************
+${COLOR_BLUE}**************************    ***********          *****************************
+${COLOR_RED}********************************************************************************
+${COLOR_WHITE}********************************************************************************
+${COLOR_BLUE}********************************************************************************
+${COLOR_RED}********************************************************************************
+${COLOR_WHITE}********************************************************************************
+${COLOR_BLUE}********************************************************************************
+"
+
 # Greeting
-if  [ $full_init ]
-then echo -e "${COLOR_RED}$MSG_CHECK_ERRORS${COLOR_NC}"
-# date    "+date: %Y-%m-%d%ntime: %H:%M:%S"
-echo -e "${COLOR_BLUE}$MSG_GREETING${COLOR_NC}"
-fi
+echo -e "$MSG_GREETING${COLOR_NC}"
