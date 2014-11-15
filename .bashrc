@@ -6,6 +6,10 @@
 #  Created by Derek Bixler on 8/5/14.
 #
 
+
+# Backup MacPorts installed ports list
+/opt/local/bin/port -qv installed > ~/.macports_installed
+
 ###############################################################################
 # Alias(es)                                                                   #
 ###############################################################################

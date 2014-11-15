@@ -119,7 +119,8 @@ UC=$COLOR_BLACK               # user's color
 [ $UID -eq "0" ] && UC=$COLOR_RED   # root's color
 
 # Custom bash prompt via kirsle.net/wizards/ps1.html
-export PS1="8=D~ ${COLOR_LIGHT_BLUE}\${PWD}${COLOR_LIGHT_BLUE}→${COLOR_NC} "
+#export PS1="${COLOR_LIGHT_BLUE}\${PWD}${COLOR_LIGHT_BLUE}→${COLOR_NC}"
+export PS1="${PWD}→"
 
 ###############################################################################
 # Miscellaneous                                                               #
@@ -130,7 +131,8 @@ if [[ -f /opt/local/etc/profile.d/bash_completion.sh ]];
 fi
 
 # Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
+# sudo
+systemsetup -setrestartfreeze on
 
 # Self explanatory
 export MSG_GREETING="
